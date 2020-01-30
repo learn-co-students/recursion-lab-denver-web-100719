@@ -22,8 +22,6 @@ function reverseString(string){
     return reversedString
 }
 
-reverseString('abcde')
-
 
 function isPalindrome(string){
     if(string.length > 1 && string[0] === string[string.length -1]){
@@ -32,6 +30,26 @@ function isPalindrome(string){
       return false
     }
     return true
-  }
+}
 
   
+function addUp(array){
+    let sum;
+    if(array.length > 0){
+      sum = Number.parseInt(array[0]) + addUpTo(array.slice(1, array.length))
+    } else {
+      return 0
+    }
+    return sum
+}
+
+function addUpTo(array, index){
+    let sum;
+    if(index >= 0){
+      sum = Number.parseInt(array[0]) + addUpTo(array.slice(1, array.length), index - 1)
+    } 
+    else {
+        return 0
+    }
+    return sum
+  }
