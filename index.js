@@ -1,6 +1,5 @@
 // Code your solution here!
 
-
 function printString(myString) {
     console.log(myString[0]);
    
@@ -11,6 +10,7 @@ function printString(myString) {
       return true;
     }
   }
+
 
 function reverseString(string){
     let reversedString;
@@ -43,13 +43,42 @@ function addUp(array){
     return sum
 }
 
+
 function addUpTo(array, index){
     let sum;
-    if(index >= 0){
+    if(index >= 1){
       sum = Number.parseInt(array[0]) + addUpTo(array.slice(1, array.length), index - 1)
     } 
     else {
-        return 0
+        return array[0]
     }
     return sum
+}
+
+
+function maxOf(array){
+    if(array.length > 1){
+        if(array[0] > array[1]){
+            array.splice(1,1)
+            maxOf(array)
+        } else {
+            array.shift()
+            maxOf(array)
+        }
+    }
+    return array[0]
+}
+
+
+function includesNumber(array, number){
+    if(array.length > 0){
+      if(array[0] === number){
+        return true
+      } else {
+        array.shift()
+        return includesNumber(array, number)
+      }
+    } else {
+      return false
+    }
   }
